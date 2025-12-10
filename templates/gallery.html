@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.95);
+    }
+
+    .modal-content {
+        display: flex;
+        width: 90%;
+        height: 90%;
+        margin: 2% auto;
+        background: #1a1a1a;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .modal-image-container {
+        flex: 2;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .modal-sidebar {
+        flex: 1;
+        padding: 20px;
+        border-left: 1px solid #333;
+        display: flex;
+        flex-direction: column;
+        color: #ddd;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .caption-box {
+        background: #222;
+        border: 1px solid #444;
+        color: #fff;
+        padding: 10px;
+        width: 100%;
+        height: 200px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        resize: none;
+        margin-bottom: 10px;
+    }
+
+    .btn-copy {
+        background: var(--accent-color);
+        color: black;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .btn-copy:hover {
+        opacity: 0.8;
+    }
+
+    /* Navigation Arrows */
+    .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        /* Ensuring clickability */
+    }
+
+    .nav-prev {
+        left: 0;
+    }
+
+    .nav-next {
+        right: 0;
+    }
+
+    @media (max-width: 768px) {
+        .modal-content {
+            flex-direction: column;
+        }
+
+        .modal-sidebar {
+            height: 40%;
+        }
+
+        .modal-image-container {
+            height: 60%;
+        }
+    }
+</style>
+
+<h2>📸 Evidence Gallery (Studio Mode)</h2>
+<p style="color: grey;">Click an image to open Studio View. Use Arrow Keys (⬅️/➡️) to navigate.</p>
+
+<div class="grid">
+    {% for img in images %}
+    <div class="card" onclick="openModal({{ loop.index0 }})" style="cursor: pointer;">
+        <img src="/image/{{ img }}" loading="lazy" alt="Evidence">
+        <div style="margin-top: 5px; font-size: 0.8rem; color: #666;">
+            {{ img }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal Structure -->
+<div id="imageModal" class="modal">
+    <span class="modal-close" style="z-index: 2001;" onclick="closeModal()">&times;</span>
+
+    <div class="nav-arrow nav-prev" onclick="changeImage(-1)">&#10094;</div>
+    <div class="nav-arrow nav-next" onclick="changeImage(1)">&#10095;</div>
+
+    <div class="modal-content">
+        <div class="modal-image-container" onclick="changeImage(1)" style="cursor: pointer;">
+            <img class="modal-image" id="modalImg" src="">
+        </div>
+        <div class="modal-sidebar">
+            <h3>Instagram Studio</h3>
+            <p style="font-size: 0.8rem; color: #aaa;">Caption & Tags</p>
+            <textarea id="captionText" class="caption-box"></textarea>
+            <button class="btn-copy" onclick="copyCaption()">Copy Caption</button>
+
+            <div style="margin-top: 20px; font-size: 0.8rem;">
+                <p><strong>Filename:</strong> <span id="metaFilename"></span></p>
+                <p><strong>Date:</strong> <span id="metaDate"></span></p>
+                <p><strong>Prompt:</strong> <span id="metaPrompt" style="color:#666;"></span></p>
+            </div>
+
+            <button class="btn-delete" onclick="deleteImage()"
+                style="margin-top: auto; background: #ff3366; color: white; border: none; padding: 10px; cursor: pointer; font-weight: bold;">DELETE
+                IMAGE</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Data passed from Flask
+    const allImages = {{ images | tojson }};
+    const allMetadata = {{ metadata | tojson }};
+
+    let currentIndex = 0;
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const captionText = document.getElementById("captionText");
+    const metaFilename = document.getElementById("metaFilename");
+    const metaDate = document.getElementById("metaDate");
+    const metaPrompt = document.getElementById("metaPrompt");
+
+    function openModal(index) {
+        currentIndex = index;
+        updateModal();
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = allImages.length - 1;
+        if (currentIndex >= allImages.length) currentIndex = 0;
+        updateModal();
+    }
+
+    function updateModal() {
+        const filename = allImages[currentIndex];
+        modalImg.src = "/image/" + filename;
+
+        // Populate Metadata
+        const meta = allMetadata[filename];
+        if (meta) {
+            const combined = (meta.caption || "") + "\n\n" + (meta.tags || "");
+            captionText.value = combined.trim();
+            metaFilename.innerText = filename;
+            metaDate.innerText = meta.timestamp || "N/A";
+            metaPrompt.innerText = meta.prompt || "N/A";
+        } else {
+            captionText.value = "No metadata found. (Generating...)";
+            metaFilename.innerText = filename;
+            metaDate.innerText = "N/A";
+            metaPrompt.innerText = "N/A";
+        }
+    }
+
+    function copyCaption() {
+        captionText.select();
+        document.execCommand("copy");
+        alert("Caption Copied to Clipboard!");
+    }
+
+    function deleteImage() {
+        const filename = allImages[currentIndex];
+        if (!confirm(`Are you sure you want to delete ${filename}?`)) return;
+
+        fetch('/api/delete_image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: filename })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Deleted.");
+                    location.reload(); // Simple reload to refresh grid
+                } else {
+                    alert("Error: " + data.error);
+                }
+            })
+            .catch(err => alert("Error: " + err));
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', function (event) {
+        if (modal.style.display === "block") {
+            if (event.key === "ArrowLeft") changeImage(-1);
+            if (event.key === "ArrowRight") changeImage(1);
+            if (event.key === "Escape") closeModal();
+        }
+    });
+
+    // Validating Hash on Load
+    window.onload = function () {
+        if (window.location.hash) {
+            const targetFile = window.location.hash.substring(1); // Remove '#'
+            const idx = allImages.indexOf(targetFile);
+            if (idx !== -1) {
+                openModal(idx);
+            }
+        }
+    };
+</script>
+{% endblock %}

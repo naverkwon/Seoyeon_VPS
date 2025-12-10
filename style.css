@@ -1,0 +1,137 @@
+/* Pastel Green / Kyoto Garden Theme */
+
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    color: #2F3E2F !important;
+    /* Dark Green Text */
+}
+
+/* Main Container Background */
+.stApp {
+    background-color: #F7FBF7;
+    /* Snowy Mint */
+}
+
+/* Sidebar Styling */
+section[data-testid="stSidebar"] {
+    background-color: #EDF5E1;
+    /* Tea Green */
+    border-right: 1px solid #C8E6C9;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+    color: #1B5E20 !important;
+    /* Dark Forest Green */
+}
+
+/* Buttons (Primary - "Shoot") */
+button[kind="primary"] {
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+    /* Fresh Green Gradient */
+    border: none;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+button[kind="primary"]:hover {
+    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Buttons (Secondary) */
+button[kind="secondary"] {
+    background-color: #FFFFFF;
+    color: #2E7D32 !important;
+    /* Forest Green */
+    border: 1px solid #A5D6A7;
+    border-radius: 12px;
+}
+
+button[kind="secondary"]:hover {
+    border-color: #4CAF50;
+    color: #1B5E20 !important;
+    background-color: #F1F8E9;
+}
+
+/* Card Containers (Expander/Container) */
+[data-testid="stExpander"],
+[data-testid="stVerticalBlock"]>div[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: #FFFFFF;
+    border: 1px solid #C8E6C9;
+    /* Pale Green Border */
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    /* Soft Shadow */
+    padding: 1rem;
+}
+
+/* Typography Headings */
+h1,
+h2,
+h3 {
+    color: #1B5E20 !important;
+    /* Dark Forest Green */
+    font-weight: 600 !important;
+}
+
+h3 {
+    font-size: 1.1rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid #E8F5E9;
+    padding-bottom: 0.5rem;
+}
+
+/* Inputs & Selectboxes */
+.stTextInput input,
+.stSelectbox div[data-baseweb="select"]>div,
+.stTextArea textarea {
+    background-color: #FFFFFF !important;
+    border: 1px solid #C8E6C9 !important;
+    color: #2F3E2F !important;
+    border-radius: 10px;
+}
+
+.stTextInput input:focus,
+.stSelectbox div[data-baseweb="select"]:focus-within,
+.stTextArea textarea:focus {
+    border-color: #66BB6A !important;
+    box-shadow: 0 0 0 2px rgba(102, 187, 106, 0.2) !important;
+}
+
+/* Gallery Images */
+img {
+    border-radius: 12px;
+    border: 1px solid #C8E6C9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Divider */
+hr {
+    border-color: #C8E6C9 !important;
+}
+
+/* Toast */
+.stToast {
+    background-color: #E8F5E9 !important;
+    /* Very Light Green */
+    border: 1px solid #A5D6A7 !important;
+    color: #1B5E20 !important;
+    border-radius: 12px;
+}
+
+/* Radio Buttons */
+div[role="radiogroup"] label {
+    color: #2F3E2F !important;
+}

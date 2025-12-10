@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card status-box">
+    <h2>📡 Live Status</h2>
+    <p>Last Update: {{ status.updated }}</p>
+    <div style="font-size: 1.5rem; margin-top: 10px;">
+        {{ status.activity }}
+    </div>
+</div>
+
+<div class="card">
+    <h2>📸 Recent Evidence</h2>
+    <div class="grid">
+        {% for img in images %}
+        <div>
+            <a href="/gallery#{{ img }}">
+                <img src="/image/{{ img }}" alt="Evidence">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <p style="text-align: right;"><a href="/gallery">View All &rarr;</a></p>
+</div>
+
+<div class="card">
+    <h2>📝 Recent Logs</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>User</th>
+                <th>AI Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in recent_logs %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2][:50] }}...</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

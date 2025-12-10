@@ -1,0 +1,641 @@
+{
+    "seoyeon": {
+        "id": "seoyeon_v1",
+        "name": "Seoyeon",
+        "lora_trigger": "seoyeon",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Korean idol face",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "delicate sharp features, huge clear eyes",
+            "makeup_style": "natural minimal makeup",
+            "hair_color": "black",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead fully exposed",
+            "body_type": "slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy",
+                "silky",
+                "damp"
+            ],
+            "hair_state": [
+                "flowing",
+                "cascading",
+                "tied in ponytail",
+                "half-up style"
+            ],
+            "breast_size_options": [
+                "medium-large",
+                "large",
+                "extra-large"
+            ],
+            "body_state": [
+                "athletic",
+                "slim",
+                "toned"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "bangs",
+                "short hair",
+                "blonde",
+                "dyed"
+            ],
+            "prohibited_features": [
+                "childlike",
+                "heavy makeup"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "minjee": {
+        "id": "minjee_v1",
+        "name": "Minjee",
+        "lora_trigger": "minjee",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Korean actress face",
+            "age_range": "mid 20s",
+            "skin_tone": "honey skin",
+            "facial_features": "soft round features, warm brown eyes",
+            "makeup_style": "natural rosy makeup",
+            "hair_color": "dark brown",
+            "hair_length": "medium to long",
+            "bangs": "side-swept bangs",
+            "forehead": "partially covered",
+            "body_type": "curvy athletic body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "soft waves",
+                "beach waves"
+            ],
+            "hair_state": [
+                "loose",
+                "braided",
+                "in bun"
+            ],
+            "breast_size_options": [
+                "medium",
+                "medium-large"
+            ],
+            "body_state": [
+                "athletic",
+                "toned",
+                "curvy"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "very short",
+                "blonde",
+                "bright colors"
+            ],
+            "prohibited_features": [
+                "childlike",
+                "heavy makeup"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "yuna": {
+        "id": "yuna_v1",
+        "name": "Yuna",
+        "lora_trigger": "yuna",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Korean model face",
+            "age_range": "late 20s",
+            "skin_tone": "pale porcelain skin",
+            "facial_features": "angular sharp features, cat-like eyes",
+            "makeup_style": "sophisticated minimal makeup",
+            "hair_color": "jet black",
+            "hair_length": "very long",
+            "bangs": "no bangs",
+            "forehead": "high forehead fully exposed",
+            "body_type": "tall slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "perfectly straight",
+                "sleek",
+                "glossy"
+            ],
+            "hair_state": [
+                "flowing down",
+                "high ponytail",
+                "slicked back"
+            ],
+            "breast_size_options": [
+                "small",
+                "medium"
+            ],
+            "body_state": [
+                "slim",
+                "model-thin",
+                "elegant"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "bangs",
+                "curly",
+                "messy"
+            ],
+            "prohibited_features": [
+                "childlike",
+                "heavy makeup",
+                "curves"
+            ],
+            "age_constraint": "must_be_adult",
+            "style_constraint": "elegant_only"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "jisoo": {
+        "id": "jisoo_v1",
+        "name": "Jisoo",
+        "lora_trigger": "jisoo",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "",
+            "makeup_style": "heavy glam makeup",
+            "hair_color": "black",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight"
+            ],
+            "hair_state": [
+                "flowing"
+            ],
+            "breast_size_options": [
+                "medium"
+            ],
+            "body_state": [
+                "slim"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [],
+            "prohibited_features": []
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "leeseo": {
+        "constraints": {
+            "age_constraint": "must_be_adult",
+            "prohibited_features": [
+                "childlike"
+            ],
+            "prohibited_hair": [
+                "short"
+            ]
+        },
+        "fixed_base": {
+            "age_range": "early 20s",
+            "bangs": "no bangs",
+            "body_type": "Glamorous body",
+            "ethnicity": "Korean",
+            "face_type": "Wolf-like cool face",
+            "facial_features": "Plump lips, Double eyelids",
+            "forehead": "forehead visible",
+            "hair_color": "Ash gray",
+            "hair_length": "long",
+            "makeup_style": "natural makeup",
+            "skin_tone": "fair skin"
+        },
+        "id": "leeseo_v1",
+        "lora_trigger": "leeseo",
+        "name": "Leeseo",
+        "quality_preset": {
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "masterpiece": 1.3,
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        },
+        "variable_attributes": {
+            "body_state": [
+                "slim",
+                "athletic"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ]
+        }
+    },
+    "lisa": {
+        "id": "lisa_v1",
+        "name": "Lisa",
+        "lora_trigger": "lisa",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Deer-like innocent face",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "Sharp jawline, High nose bridge",
+            "makeup_style": "natural makeup",
+            "hair_color": "Platinum blonde",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "Slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "chaewon": {
+        "id": "chaewon_v1",
+        "name": "Chaewon",
+        "lora_trigger": "chaewon",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Puppy-like cute face",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "Thick eyebrows, High nose bridge",
+            "makeup_style": "natural makeup",
+            "hair_color": "Pinkish brown",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "Glamorous body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "yeji": {
+        "id": "yeji_v1",
+        "name": "Yeji",
+        "lora_trigger": "yeji",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Classic beauty face",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "Mole under eye, Thick eyebrows",
+            "makeup_style": "natural makeup",
+            "hair_color": "Pinkish brown",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "Glamorous body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "lia": {
+        "id": "lia_v1",
+        "name": "Lia",
+        "lora_trigger": "lia",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "Classic beauty face",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "Dimples, Dimples",
+            "makeup_style": "natural makeup",
+            "hair_color": "Platinum blonde",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "Curvy body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "": {
+        "id": "_v1",
+        "name": "",
+        "lora_trigger": "",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "",
+            "makeup_style": "natural makeup",
+            "hair_color": "black",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "debugchar": {
+        "id": "debugchar_v1",
+        "name": "DebugChar",
+        "lora_trigger": "debug",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "",
+            "makeup_style": "natural makeup",
+            "hair_color": "black",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    },
+    "deletetest": {
+        "id": "deletetest_v1",
+        "name": "DeleteTest",
+        "lora_trigger": "deleteme",
+        "fixed_base": {
+            "ethnicity": "Korean",
+            "face_type": "",
+            "age_range": "early 20s",
+            "skin_tone": "fair skin",
+            "facial_features": "",
+            "makeup_style": "natural makeup",
+            "hair_color": "black",
+            "hair_length": "long",
+            "bangs": "no bangs",
+            "forehead": "forehead visible",
+            "body_type": "slim body"
+        },
+        "variable_attributes": {
+            "hair_texture": [
+                "straight",
+                "wavy"
+            ],
+            "hair_state": [
+                "flowing",
+                "tied"
+            ],
+            "breast_size_options": [
+                "medium",
+                "large"
+            ],
+            "body_state": [
+                "slim",
+                "athletic"
+            ]
+        },
+        "constraints": {
+            "prohibited_hair": [
+                "short"
+            ],
+            "prohibited_features": [
+                "childlike"
+            ],
+            "age_constraint": "must_be_adult"
+        },
+        "quality_preset": {
+            "masterpiece": 1.3,
+            "best_quality": 1.3,
+            "detail_level": "ultra detailed",
+            "photo_type": "8k RAW photo",
+            "render_style": "photorealistic"
+        }
+    }
+}
